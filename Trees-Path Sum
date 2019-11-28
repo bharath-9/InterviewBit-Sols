@@ -1,0 +1,19 @@
+int summu(TreeNode* A, int sum,int B)
+ {
+      if(A==NULL)
+           return 0;
+          sum+=A->val;
+         if((A->left==NULL)&&(A->right==NULL))
+            {
+                if(sum==B)
+                  return 1;
+            }
+         
+        return summu(A->left,sum,B)|summu(A->right,sum,B);
+ }
+ 
+int Solution::hasPathSum(TreeNode* A, int B) {
+        
+     return summu(A,0,B);
+     
+}
